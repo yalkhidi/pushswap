@@ -1,0 +1,41 @@
+stack A: 1 3 5 2 4
+indes:   0 1 2 3 4
+stack b:
+
+min index = 0
+pb
+a->size = 4
+a: 3 5 2 4
+i: 0 1 2 3
+b: 1
+ra
+ra
+a: 2 4 3 5
+pb
+b: 2 1
+a: 4 3 5
+sa
+
+
+
+a: 4 3 5 2 1
+i: 0 1 2 3 4
+a->size = 5
+5/ 2 = 2
+min_index = 4
+rra
+min_index = 5
+a: 1 4 3 5 2
+pb
+a: 4 3 5 2
+i: 0 1 2 3
+min = 3
+3 > 2
+rra
+a: 2 4 3 5
+pb
+a: 4 3 5
+b: 2 1
+sa
+pa
+pa
