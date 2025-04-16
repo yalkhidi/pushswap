@@ -6,61 +6,61 @@
 /*   By: yalkhidi <yalkhidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:21:43 by yalkhidi          #+#    #+#             */
-/*   Updated: 2025/03/10 13:51:31 by yalkhidi         ###   ########.fr       */
+/*   Updated: 2025/04/15 17:12:53 by yalkhidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rra(t_stack *stack_a)
+void	rra(t_stack *a)
 {
 	t_node	*prev;
 	t_node	*last;
 
-	if (stack_a->size >= 2)
+	if (a->size >= 2)
 	{
 		prev = NULL;
-		last = stack_a->top;
+		last = a->top;
 		while (last->next)
 		{
 			prev = last;
 			last = last->next;
 		}
 		prev->next = NULL;
-		last->next = stack_a->top;
-		stack_a->top = last;
+		last->next = a->top;
+		a->top = last;
 		write(1, "rra\n", 4);
 	}
 	else
 		return ;
 }
 
-void	rrb(t_stack *stack_b)
+void	rrb(t_stack *b)
 {
 	t_node	*prev;
 	t_node	*last;
 
-	if (stack_b->size >= 2)
+	if (b->size >= 2)
 	{
 		prev = NULL;
-		last = stack_b->top;
+		last = b->top;
 		while (last->next)
 		{
 			prev = last;
 			last = last->next;
 		}
 		prev->next = NULL;
-		last->next = stack_b->top;
-		stack_b->top = last;
+		last->next = b->top;
+		b->top = last;
 		write(1, "rrb\n", 4);
 	}
 	else
 		return ;
 }
 
-void	rrr(t_stack *stack_a, t_stack *stack_b)
+void	rrr(t_stack *a, t_stack *b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	rra(a);
+	rrb(b);
 	write(1, "rrr\n", 4);
 }

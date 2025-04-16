@@ -11,93 +11,93 @@ typedef struct s_stack
 	t_node	*top;
 	int		size;
 }	t_stack;
-void	pa(t_stack *stack_a, t_stack *stack_b)
+void	pa(t_stack *a, t_stack *b)
 {
 	int	peek_val;
 
-	if (stack_b->size > 0)
+	if (b->size > 0)
 	{
-		peek_val = peek(stack_b);
-		push(stack_a, peek_val);
-		pop(stack_b);
+		peek_val = peek(b);
+		push(a, peek_val);
+		pop(b);
 	}
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack *stack_a, t_stack *stack_b)
+void	pb(t_stack *a, t_stack *b)
 {
 	int	peek_val;
 
-	if (stack_a->size > 0)
+	if (a->size > 0)
 	{
-		peek_val = peek(stack_a);
-		push(stack_b, peek_val);
-		pop(stack_a);
+		peek_val = peek(a);
+		push(b, peek_val);
+		pop(a);
 	}
 	write(1, "pb\n", 3);
 }
-void	rra(t_stack *stack_a)
+void	rra(t_stack *a)
 {
 	t_node	*prev;
 	t_node	*last;
 
-	if (stack_a->size > 2)
+	if (a->size > 2)
 	{
 		prev = NULL;
-		last = stack_a->top;
+		last = a->top;
 		while (last->next)
 		{
 			prev = last;
 			last = last->next;
 		}
 		prev->next = NULL;
-		last->next = stack_a->top;
-		stack_a->top = last;
+		last->next = a->top;
+		a->top = last;
 		write(1, "rra\n", 4);
 	}
 	else
 		return ;
 }
 
-void	rrb(t_stack *stack_b)
+void	rrb(t_stack *b)
 {
 	t_node	*prev;
 	t_node	*last;
 
-	if (stack_b->size > 2)
+	if (b->size > 2)
 	{
 		prev = NULL;
-		last = stack_b->top;
+		last = b->top;
 		while (last->next)
 		{
 			prev = last;
 			last = last->next;
 		}
 		prev->next = NULL;
-		last->next = stack_b->top;
-		stack_b->top = last;
+		last->next = b->top;
+		b->top = last;
 		write(1, "rrb\n", 4);
 	}
 	else
 		return ;
 }
 
-void	rrr(t_stack *stack_a, t_stack *stack_b)
+void	rrr(t_stack *a, t_stack *b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	rra(a);
+	rrb(b);
 	write(1, "rrr\n", 4);
 }
-void	ra(t_stack *stack_a)
+void	ra(t_stack *a)
 {
 	t_node	*first;	
 	t_node	*temp;
 
-	if (stack_a->size > 2)
+	if (a->size > 2)
 	{
-		first = stack_a->top;
-		stack_a->top = stack_a->top->next;
-		temp = stack_a->top;
+		first = a->top;
+		a->top = a->top->next;
+		temp = a->top;
 		while (temp->next)
 		{
 			temp = temp->next;
@@ -110,16 +110,16 @@ void	ra(t_stack *stack_a)
 		return ;
 }
 
-void	rb(t_stack *stack_b)
+void	rb(t_stack *b)
 {
 	t_node	*first;
 	t_node	*temp;
 
-	if (stack_b->size > 2)
+	if (b->size > 2)
 	{
-		first = stack_b->top;
-		stack_b->top = stack_b->top->next;
-		temp = stack_b->top;
+		first = b->top;
+		b->top = b->top->next;
+		temp = b->top;
 		while (temp->next)
 			temp = temp->next;
 		temp->next = first;
@@ -130,44 +130,44 @@ void	rb(t_stack *stack_b)
 		return ;
 }
 
-void	rr(t_stack *stack_a, t_stack *stack_b)
+void	rr(t_stack *a, t_stack *b)
 {
-	ra(stack_a);
-	rb(stack_b);
+	ra(a);
+	rb(b);
 	write(1, "rr\n", 3);
 }
-void	sa(t_stack *stack_a)
+void	sa(t_stack *a)
 {
 	t_node	*node_1;
 
-	if (stack_a->size > 1)
+	if (a->size > 1)
 	{
-		node_1 = stack_a->top;
-		stack_a->top = stack_a->top->next;
-		node_1->next = stack_a->top->next;
-		stack_a->top->next = node_1;
+		node_1 = a->top;
+		a->top = a->top->next;
+		node_1->next = a->top->next;
+		a->top->next = node_1;
 	}
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack	*stack_b)
+void	sb(t_stack	*b)
 {
 	t_node	*node_1;
 
-	if (stack_b->size > 1)
+	if (b->size > 1)
 	{
-		node_1 = stack_b->top;
-		stack_b->top = stack_b->top->next;
-		node_1->next = stack_b->top->next;
-		stack_b->top->next = node_1;
+		node_1 = b->top;
+		b->top = b->top->next;
+		node_1->next = b->top->next;
+		b->top->next = node_1;
 	}
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_stack *a, t_stack *b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	sa(a);
+	sb(b);
 	write(1, "ss\n", 3);
 }
 t_stack	*create_stack(void)
@@ -314,7 +314,7 @@ bool	check_dup(t_stack *stack)
 		while (j < i)
 		{
 			if (array[j++] == ptr->value)
-				return (free_stack(stack), free(array), true);
+				return (free_stack(stack), free(array));
 		}
 		array[i++] = ptr->value;
 		ptr = ptr->next;
@@ -351,7 +351,7 @@ t_stack	*build_stack(int ac, char **av)
 	return (stack);
 }
 
-t_stack *parse_stack_a(int ac, char **av, t_stack *stack_a)
+t_stack *parse_a(int ac, char **av, t_stack *a)
 {
 	if (ac == 1)
 		exit(0);
@@ -359,11 +359,11 @@ t_stack *parse_stack_a(int ac, char **av, t_stack *stack_a)
 		print_message("Error\n");
 	else if (check_valid_chars(av))
 	{
-		stack_a = build_stack(ac, av);
-		if (!stack_a)
+		a = build_stack(ac, av);
+		if (!a)
 			print_message("Error\n");
 	}
-    return (stack_a);
+    return (a);
 }
 
 int find_min_index(t_stack *stack) {
@@ -471,30 +471,30 @@ void    sort_three(t_stack *stack)
 
 int	main(int ac, char **av)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	*a;
+	t_stack	*b;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	stack_a = parse_stack_a(ac, av, stack_a);
-	stack_b = create_stack();
-	if (is_sorted(stack_a))
+	a = NULL;
+	b = NULL;
+	a = parse_a(ac, av, a);
+	b = create_stack();
+	if (is_sorted(a))
 	{
-		free_stack(stack_a);
-		free_stack(stack_b);
+		free_stack(a);
+		free_stack(b);
 		exit(0);
 	}
-	// print_stack(stack_a);
-	// sort_three(stack_a);
+	// print_stack(a);
+	// sort_three(a);
 
-	mechanical_turk(stack_a, stack_b);
-	// print_stack(stack_a);
-	if(is_sorted(stack_a))
+	mechanical_turk(a, b);
+	// print_stack(a);
+	if(is_sorted(a))
 		printf("stack is sorted\n");
 	else
 		printf("not sorted\n");
-	// print_stack(stack_a);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	// print_stack(a);
+	free_stack(a);
+	free_stack(b);
 }
 

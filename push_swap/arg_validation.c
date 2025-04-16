@@ -6,7 +6,7 @@
 /*   By: yalkhidi <yalkhidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 13:03:47 by yalkhidi          #+#    #+#             */
-/*   Updated: 2025/04/14 14:30:13 by yalkhidi         ###   ########.fr       */
+/*   Updated: 2025/04/15 17:17:26 by yalkhidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ bool	check_dup(t_stack *stack)
 		while (j < i)
 		{
 			if (array[j++] == ptr->value)
-				return (free_stack(stack), free(array), true);
+				return (free_stack(stack), free(array), false);
 		}
 		array[i++] = ptr->value;
 		ptr = ptr->next;

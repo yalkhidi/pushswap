@@ -6,7 +6,7 @@
 /*   By: yalkhidi <yalkhidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 14:28:38 by yalkhidi          #+#    #+#             */
-/*   Updated: 2025/04/14 14:28:55 by yalkhidi         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:36:55 by yalkhidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_stack	*build_stack(int ac, char **av)
 	return (stack);
 }
 
-t_stack	*parse_stack_a(int ac, char **av, t_stack *stack_a)
+t_stack	*parse_a(int ac, char **av, t_stack *a)
 {
 	if (ac == 1)
 		exit(0);
@@ -48,9 +48,9 @@ t_stack	*parse_stack_a(int ac, char **av, t_stack *stack_a)
 		print_message("Error\n");
 	else if (check_valid_chars(av))
 	{
-		stack_a = build_stack(ac, av);
-		if (!stack_a)
+		a = build_stack(ac, av);
+		if (!a)
 			print_message("Error\n");
 	}
-	return (stack_a);
+	return (a);
 }

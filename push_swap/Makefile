@@ -13,7 +13,9 @@ FILES:= \
 		input_handler.c \
 		sort_three.c \
 		main.c \
-		sort.c
+		sort.c \
+		chunk.c \
+		push_to_a.c
 # MAIN:= main.c
 FT_PRINTF_LIB:= ft_printf/libftprintf.a
 BONUS:= 

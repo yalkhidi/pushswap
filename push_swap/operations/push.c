@@ -6,34 +6,35 @@
 /*   By: yalkhidi <yalkhidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:27:49 by yalkhidi          #+#    #+#             */
-/*   Updated: 2025/03/12 12:34:14 by yalkhidi         ###   ########.fr       */
+/*   Updated: 2025/04/15 17:12:20 by yalkhidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pa(t_stack *stack_a, t_stack *stack_b)
+void	pa(t_stack *a, t_stack *b)
 {
 	int	peek_val;
 
-	if (stack_b->size > 0)
+	if (b->size > 0)
 	{
-		peek_val = peek(stack_b);
-		push(stack_a, peek_val);
-		pop(stack_b);
+		peek_val = peek(b);
+		push(a, peek_val);
+		pop(b);
 	}
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack *stack_a, t_stack *stack_b)
+void	pb(t_stack *a, t_stack *b)
 {
 	int	peek_val;
 
-	if (stack_a->size > 0)
+	if (a->size > 0)
 	{
-		peek_val = peek(stack_a);
-		push(stack_b, peek_val);
-		pop(stack_a);
+		peek_val = peek(a);
+		push(b, peek_val);
+		pop(a);
 	}
-	write(1, "pb\n", 3);
+	
+		write(1, "pb\n", 3);
 }
